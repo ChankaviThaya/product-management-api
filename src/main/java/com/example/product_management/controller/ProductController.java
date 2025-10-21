@@ -48,14 +48,15 @@ public class ProductController {
     }
 
     // DELETE /api/products/{name} → Delete product by name
-    @DeleteMapping("/{name}")
-    public ResponseEntity<String> deleteProductByName(@PathVariable String name) {
-        Optional<Product> productOpt = productService.getProductByName(name);
-        if (productOpt.isPresent()) {
-            productService.deleteProductByName(name);
-            return ResponseEntity.ok("Product deleted successfully");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+@DeleteMapping("/{name}")
+public ResponseEntity<String> deleteProductByName(@PathVariable String name) {
+    Optional<Product> productOpt = productService.getProductByName(name);
+    if (productOpt.isPresent()) {
+        productService.deleteProductByName(name);
+        return ResponseEntity.ok("Product deleted successfully");
+    } else {
+        return ResponseEntity.notFound().build();
     }
+}
+
 }
